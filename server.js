@@ -2,8 +2,11 @@ const express = require('express');
 const BookLibrary = require('./bookLibrary.js');
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
+const cors = require('cors');
 
-const app = express();
+
+const app = express()
+app.use(cors());;
 const myLibrary = new BookLibrary();
 const dbUrl = process.env.MONGODB_URI;
 const dbName = 'myLibrary';
